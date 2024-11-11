@@ -1,28 +1,16 @@
 package conta;
 
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import conta.model.ContaCorrente;
 import conta.model.ContaPoupanca;
-import conta.model.Conta;
 import conta.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
-		
-		
-		
-		
-		// Teste da Classe Conta
-		
-				Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.0f);
-				c1.visualizar();
-				c1.sacar(12000.0f);
-				c1.visualizar();
-				c1.depositar(5000.0f);
-				c1.visualizar();
-		
-				Scanner leia = new Scanner(System.in);
+	Scanner leia = new Scanner(System.in);
 		
 				int opcao;
 				
@@ -71,6 +59,17 @@ public class Menu {
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     " + Cores.TEXT_RESET);
+			
+			
+			
+			
+			try {
+				opcao = leia.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("\nDigite valores inteiros!");
+				leia.nextLine();
+				opcao=0;
+			}
 
 			opcao = leia.nextInt();
 
@@ -128,5 +127,25 @@ public class Menu {
 		System.out.println("Generation Brasil - RodrigoS@generation.org");
 		System.out.println("https://github.com/RPX31");
 		System.out.println("*********************************************************");
+		
+		
+		
+		
+	}
+	
+	
+	public static void keyPress() {
+
+		try {
+
+			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
+			System.in.read();
+
+		} catch (IOException e) {
+
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+
+		}
+	
 	}
 }
