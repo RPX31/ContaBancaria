@@ -35,7 +35,7 @@ public class Menu {
 		ContaPoupanca cp2 = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Juliana Ramos", 8000f, 15);
 		contas.cadastrar(cp2);
 
-		contas.listarTodas();
+		
 
 		while (true) {
 
